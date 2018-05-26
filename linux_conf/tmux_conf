@@ -1,0 +1,43 @@
+bind r source-file ~/.tmux.conf \; display "Reloaded! Completed!!"
+set -g history-limit 65535
+set -g default-terminal "screen-256color"
+#set -g prefix C-x
+#unbind C-b
+
+#hjkl
+bind-key k select-pane -U
+bind-key j select-pane -D
+bind-key l select-pane -R
+bind-key h select-pane -L
+
+
+# Send prefix
+# set-option -g prefix C-a
+# unbind-key C-a
+# bind-key C-a send-prefix
+#
+# # Use Alt-arrow keys to switch panes
+#bind -n M-l select-pane -L
+#bind -n M-h select-pane -R
+#bind -n M-k select-pane -U
+#bind -n M-j select-pane -D
+#
+# # Shift arrow to switch windows
+#bind -n S-Left previous-window
+#bind -n S-Right next-window
+#
+# # Mouse mode
+set -g mouse on
+#
+#
+# # Set easier window split keys
+bind-key v split-window -h
+bind-key c split-window -v
+#
+# # Easy config reload
+# bind-key r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded"
+
+
+
+
+
