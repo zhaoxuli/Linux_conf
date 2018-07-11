@@ -10,6 +10,7 @@ export TERM=xterm-256color
 #ZSH_THEME="half-life_cg"
 #ZSH_THEME="ys"
 ZSH_THEME="robbyrussell_cg"
+#ZSH_THEME="robbyrussell"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -102,6 +103,8 @@ alias grep='grep --color=auto' #search
 alias fdhm='find ~/ -name'
 alias fd='find ./ -name'
 alias py='python '
+alias bpy='bpython '
+alias np='/usr/bin/notepadqq '
 #git
 alias gs='git status'
 alias gcm='git commit'
@@ -118,9 +121,10 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias del='/bin/bash   /home/zhaoxu/tools/remove.sh'
-alias rec='/bin/bash   /home/zhaoxu/tools/recover.sh'
-alias rm='echo Dont use rm!!!!!'
+#alias del='/bin/bash   /home/zhaoxu/tools/remove.sh'
+#alias rec='/bin/bash   /home/zhaoxu/tools/recover.sh'
+#alias rm='echo Dont use rm!!!!!'
 alias cleartrash='/bin/rm -rf ~/.trash/*'
 alias rmhard='/bin/rm  -rf'
 alias hm='hostname'
+alias goshare='cd /media/zhaoxu/文档/linx_share/'

@@ -1,0 +1,20 @@
+[theme]
+color_1=#303030  #黑色
+color_2=#e1321a  #红色
+color_3=#A2A2A2  #亮灰色
+color_4=#ffc005  #橙黄色
+color_5=#004f9e  #兰色
+color_6=#ec0048  #樱桃红
+color_7=#2aa7e7  #嫩蓝色
+color_8=#f2f2f2  #灰白色
+color_9=#5d5d5d  #灰色
+color_10=#ff361e #艳红色
+color_11=#7bc91f #绿色
+color_12=#ffd00a #黄色
+color_13=#9257ED #亮紫色 （文件夹色）
+color_14=#ff1d62 #樱桃红
+color_15=#4bb8fd #天蓝色
+color_16=#a020f0 #紫色
+background=#101010
+foreground=#6CE8E8
+tab=#f2f2f2
