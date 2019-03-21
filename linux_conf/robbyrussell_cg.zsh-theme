@@ -11,8 +11,9 @@ else
     hotpink="$fg[red]"
     limegreen="$fg[green]"
 fi
-local ret_status="%(?:%{$purple%}>> %{$limegreen%}%n:%{$fg[red]%}>>%{$limegreen%}%n)"
-PROMPT='${ret_status} %{$fg[yellow]%}%~$(git_prompt_info)%{$reset_color%} at %{$hotpink%}%* %{$reset_color%}'
+
+local ret_status="%(?:%{$purple%}➜  %{$limegreen%}%n:%{$fg[red]%}➜  %{$limegreen%}%n)"
+PROMPT='${ret_status} %{$fg[cyan]%}%~$(git_prompt_info)%{$purple%} at %{$hotpink%}%* %{$reset_color%}'
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$purple%} gb:%{$limegreen%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$purple%} %{$hotpink%}✗"

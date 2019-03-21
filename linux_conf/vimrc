@@ -1,7 +1,9 @@
 "==========================================
+
+
 " Initial Plugin 加载插件
 "==========================================
-
+set rtp+=~/tools/vim/share/vim/vim80
 " 修改leader键
 let mapleader = ','
 let g:mapleader = ','
@@ -190,8 +192,7 @@ set autoindent
 " tab相关变更
 " 设置Tab键的宽度        [等同的空格个数]
 set tabstop=4
-" 每一次缩进对应的空格数
-set shiftwidth=4
+" 每一次缩进对应的空格数 set shiftwidth=4
 " 按退格键时可以一次删掉 4 个空格
 set softtabstop=4
 " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
@@ -409,6 +410,7 @@ nnoremap <silent> g* g*zz
 
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
+noremap <leader>r :m,ns/old/new/g
 
 " switch # *
 nnoremap # *
@@ -540,10 +542,16 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " 具体编辑文件类型的一般设置，比如不要 tab 等
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType txt,sh    set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType *    set tabstop=4 shiftwidth=4 expandtab ai
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
 autocmd BufRead,BufNewFile *.part set filetype=html
 autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType c,cpp    set tabstop=4 shiftwidth=4 expandtab ai
+autocmd FileType c,cpp    nmap <leader>[ a{}<ESC>i<CR><CR><Up><tab>
+autocmd FileType c,cpp    imap <leader>[ {}<ESC>i<CR><CR><Up><tab>
+autocmd FileType c,cpp    imap <leader><leader> <<
+autocmd FileType c,cpp    imap <leader>.  >>
 
 " disable showmatch when use > in php
 au BufWinEnter *.php set mps-=<:>
@@ -560,6 +568,22 @@ endfun
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 
+function! Tab2Space()
+    set ts=4
+    set expandtab
+    %retab!
+    echo 'Finished Tab2Space'
+endfunc
+nnoremap <F8> :call Tab2Space()<CR>
+
+function! Space2Tab()
+    set ts=4
+    set noexpandtab
+    %retab!
+    echo 'Finished Space2Tab'
+endfunc
+nnoremap <F9> :call Space2Tab()<CR>
+
 " 定义函数AutoSetFileHead，自动插入文件头
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
 function! AutoSetFileHead()
@@ -570,16 +594,28 @@ function! AutoSetFileHead()
 
     "如果文件类型为python
     if &filetype == 'python'
-        " call setline(1, "\#!/usr/bin/env python")
-        " call append(1, "\# encoding: utf-8")
         call setline(1, "\# -*- coding: utf-8 -*-")
     endif
-
     normal G
     normal o
     normal o
 endfunc
 
+function! Sethead()
+    call setline(1, "#include<iostream>")
+    call setline(2, "#include<string>")
+    call setline(3, "#include<vector>")
+    call setline(4, "")
+    call setline(5, "using namespace std;") 
+    call setline(6, "")
+    call setline(7, "int main(){")
+    call setline(8, "   return 0;")
+    call setline(9, "}")
+    normal G
+    normal k
+    normal k
+endfunc
+nnoremap <leader>h :call Sethead()<CR>
 
 " 设置可以高亮的关键字
 if has("autocmd")
@@ -619,14 +655,11 @@ if has("gui_running")
     set t_Co=256
 endif
 
-
-
 " theme主题
 set background=dark
 set t_Co=256
 
-"colorscheme solarized
- colorscheme molokai
+colorscheme molokai
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -644,3 +677,6 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 hi Normal  ctermfg=252 ctermbg=none
+map M :noh<CR>
+
+
