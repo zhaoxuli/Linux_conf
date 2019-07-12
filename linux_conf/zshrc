@@ -1,29 +1,29 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH=/home/zhaoxu/.oh-my-zsh
+export ZSH=/home/users/zhaoxu01.li/.oh-my-zsh
 export TERM=xterm-256color
-export LD_LIBRARY_PATH=~/opencv/cv3.4/lib/:$LD_LIBRARY_PATH
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="half-life_cg"
-#ZSH_THEME="ys"
+export ENV_PATH=/home/users/zhaoxu01.li/env_setting
+source $ENV_PATH/zheng_env.sh
+
 ZSH_THEME="robbyrussell_cg"
-#ZSH_THEME="robbyrussell"
+
+#autojump setting
+[[ -s /home/users/zhaoxu01.li/.autojump/etc/profile.d/autojump.sh ]] && source /home/users/zhaoxu01.li/.autojump/etc/profile.d/autojump.sh
 
 
 plugins=(git
-        autojump
         last-working-dir
         wd
+        autojump
         zsh-autosuggestions
         zsh-syntax-highlighting)
 #zsh-autosuggestions zsh-syntax-highlighting  need to git clone from github
-
 source $ZSH/oh-my-zsh.sh
 alias cls='clear'
 alias ll='ls -l -h'
+alias ks='ls'
+alias sl='ls'
 alias la='ls -a'
 alias vi='vim'
 alias grep='grep --color=auto' #search
@@ -37,28 +37,36 @@ alias rmhard='/bin/rm  -rf'
 alias hm='hostname'
 alias subl='sublime-text-dev '
 alias lsnum='ls | wc -w'
-alias start='dde-file-manager'
-
+alias checksize='du -sh * | sort -n'
+alias checkfilesize='du -sk -h'
+alias checkdisk='df -hl'
+eval $(thefuck --alias)
+#Horizon Used
+aladd="hdfs://hobot-bigdata-aliyun"
+hzadd="hdfs://hobot-bigdata"
+alias vim='~/tools/vim/bin/vim'
+alias gosp='cd  /mnt/hdfs-data-3/data/zhaoxu01.li'
+alias hs='/bin/bash hdfs dfs'
 #git
 alias gs='git status'
 alias gcm='git commit'
 alias t='tig'
 alias gb='git branch'
-alias gct='git checkout'
+alias gc='git checkout'
 alias grt='git remote'
-
 #alias -s py=vi       # 在命令行直接输入 python 文件，会用 vim 中打开，以下类似
 alias -s js=vi
 alias -s c=vi
 alias -s txt=vi
-alias -s gz='tar -xzvf'
-alias -s tgz='tar -xzvf'
-alias -s zip='unzip'
+alias tarunzip='tar xvf'
+alias tarzip='tar cvf'
+#alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias mk='/bin/bash /home/zhaoxu/Linux_tools/Useful_function/simple_compile.sh'
-#alias del='/bin/bash   /home/zhaoxu/tools/remove.sh'
-#alias rec='/bin/bash   /home/zhaoxu/tools/recover.sh'
-#alias rm='echo Dont use rm!!!!!'
+alias del='/bin/bash   ~/Linux_conf/Del_function/remove.sh'
+alias rec='/bin/bash   ~/Linux_conf/Del_function/recover.sh'
+alias rm='echo Dont use rm!!!!!'
+alias isfile='py  ~/Linux_conf/Useful_function/checkIsfile.py'
 #little function
 alias mkgo="makego"
 makego()

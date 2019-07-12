@@ -1,6 +1,6 @@
 #!/bin/bash
 PARA_CNT=$#
-TRASH_DIR="~/.trash/"
+TRASH_DIR="/mnt/hdfs-data-3/data/zhaoxu01.li/.trash/"
 
 for i in $*; do
     cur_str=$i
